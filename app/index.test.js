@@ -49,3 +49,27 @@ describe("Given a push function", () => {
     });
   });
 });
+
+describe("Given a find function", () => {
+  describe("When it receives ['Mesa', 'Ordenador', 'Techo', 'Ventana'] and 'Techo'", () => {
+    test("Then it should return true", () => {
+      const words = ["Mesa", "Ordenador", "Techo", "Ventana"];
+      const searchCriteria = "Techo";
+
+      const correctResult = functions.find(words, searchCriteria);
+
+      expect(correctResult).toBe(true);
+    });
+  });
+
+  describe("When it receives ['Mesa', 'Ordenador', 'Techo', 'Ventana'] and 'Pocholo'", () => {
+    test("Then it should return false", () => {
+      const words = ["Mesa", "Ordenador", "Techo", "Ventana"];
+      const searchCriteria = "Pocholo";
+
+      const correctResult = functions.find(words, searchCriteria);
+
+      expect(correctResult).toBe(false);
+    });
+  });
+});
