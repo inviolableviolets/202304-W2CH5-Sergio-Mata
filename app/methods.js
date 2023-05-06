@@ -53,9 +53,25 @@ export const shiftMethod = (array) => {
   return shiftedElement;
 };
 
-export const someMethod = () => {};
+export const someMethod = (array, callbackFunction) => {
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (callbackFunction(element)) {
+      return true;
+    }
+  }
 
-export const everyMethod = () => {};
-//
-// const list = [];
-// console.log(shiftMethod(list));
+  return false;
+};
+
+export const everyMethod = (array, callbackFunction) => {
+  let searchResult = false;
+
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    searchResult = callbackFunction(element);
+    if (!searchResult) return searchResult;
+  }
+
+  return searchResult;
+};
