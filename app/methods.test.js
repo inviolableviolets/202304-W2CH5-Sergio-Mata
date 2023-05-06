@@ -1,4 +1,3 @@
-import { mapMethod } from "./methods";
 import {
   lengthMethod,
   pushMethod,
@@ -9,6 +8,9 @@ import {
   everyMethod,
   findMethod,
   filterMethod,
+  mapMethod,
+  findIndexMethod,
+  includesMethod,
 } from "./methods";
 
 describe("Given a lengthMethod function", () => {
@@ -301,6 +303,58 @@ describe("Given a mapMethod function", () => {
       const correctResult = mapMethod(array);
 
       expect(correctResult).toStrictEqual(expectedResult);
+    });
+  });
+});
+
+describe("Given a findIndexMethod function", () => {
+  describe("When it receives [1, 2, 3, 4, 5] and 1", () => {
+    test("Then it should return 0", () => {
+      const array = [1, 2, 3, 4, 5];
+      const searchCriteria = 1;
+      const expectedResult = 0;
+
+      const correctResult = findIndexMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+
+  describe("When it receives [1, 2, 3, 4, 5] and 6", () => {
+    test("Then it should return -1", () => {
+      const array = [1, 2, 3, 4, 5];
+      const searchCriteria = 6;
+      const expectedResult = -1;
+
+      const correctResult = findIndexMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+});
+
+describe("Given a includesMethod function", () => {
+  describe("When it receives [1, 2, 3, 4, 5] and 4", () => {
+    test("Then it should return true", () => {
+      const array = [1, 2, 3, 4, 5];
+      const searchCriteria = 4;
+      const expectedResult = true;
+
+      const correctResult = includesMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+
+  describe("When it receives [1, 2, 3, 4, 5] and 'Jordi'", () => {
+    test("Then it should return false", () => {
+      const array = [1, 2, 3, 4, 5];
+      const searchCriteria = "Jordi";
+      const expectedResult = false;
+
+      const correctResult = includesMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
     });
   });
 });

@@ -64,7 +64,7 @@ export const someMethod = (array, callbackFunction) => {
 };
 
 export const everyMethod = (array, callbackFunction) => {
-  let searchResult = false;
+  let searchResult = true;
 
   for (let i = 0; i < array.length; i++) {
     searchResult = callbackFunction(array[i]);
@@ -109,4 +109,24 @@ export const mapMethod = (array, callbackFunction) => {
   }
 
   return mappedResult;
+};
+
+export const findIndexMethod = (array, searchCriteria) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === searchCriteria) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
+export const includesMethod = (array, searchCriteria) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === searchCriteria) {
+      return true;
+    }
+  }
+
+  return false;
 };
