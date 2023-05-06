@@ -19,14 +19,43 @@ export const pushMethod = (array, ...elementsToAdd) => {
   return array.length;
 };
 
-export const findMethod = (array, searchCriteria) => {
-  let searchResult = false;
-
-  for (let i = 0; i < length(array); i++) {
-    if (array[i] === searchCriteria) {
-      searchResult = true;
-    }
+export const popMethod = (array) => {
+  if (array.length === 0) {
+    return undefined;
   }
 
-  return searchResult;
+  const poppedElement = array[array.length - 1];
+  array.length -= 1;
+
+  return poppedElement;
 };
+
+export const unshiftMethod = (array, ...newElement) => {
+  const unshiftedElements = [...newElement, ...array];
+  array.length = 0;
+
+  for (let i = 0; i < unshiftedElements.length; i++) {
+    array[i] = unshiftedElements[i];
+  }
+
+  return array.length;
+};
+
+export const shiftMethod = (array) => {
+  const shiftedElement = array[0];
+  const mappedArray = [...array];
+  array.length = 0;
+
+  for (let i = 1; i < array.length; i++) {
+    array[i - 1] = mappedArray[i];
+  }
+
+  return shiftedElement;
+};
+
+export const someMethod = () => {};
+
+export const everyMethod = () => {};
+//
+// const list = [];
+// console.log(shiftMethod(list));
