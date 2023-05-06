@@ -11,6 +11,7 @@ import {
   mapMethod,
   findIndexMethod,
   includesMethod,
+  indexOfMethod,
 } from "./methods";
 
 describe("Given a lengthMethod function", () => {
@@ -353,6 +354,45 @@ describe("Given a includesMethod function", () => {
       const expectedResult = false;
 
       const correctResult = includesMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+});
+
+describe("Given a indexOfMethod function", () => {
+  describe("When it receives ['hola', 'qué', 'tal'] and 'tal", () => {
+    test("Then it should return 2", () => {
+      const array = ["hola", "qué", "tal"];
+      const searchCriteria = "tal";
+      const expectedResult = 2;
+
+      const correctResult = indexOfMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+
+  describe("When it receives ['hola', 'qué', 'tal'] and 'Don Pepito'", () => {
+    test("Then it should return -1", () => {
+      const array = ["hola", "qué", "tal"];
+      const searchCriteria = "Don Pepito";
+      const expectedResult = -1;
+
+      const correctResult = indexOfMethod(array, searchCriteria);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+
+  describe("When it receives ['hola', 'qué', 'tal'] and 'tal' and '5'", () => {
+    test("Then it should return -1", () => {
+      const array = ["hola", "qué", "tal"];
+      const searchCriteria = "tal";
+      const indexFrom = 5;
+      const expectedResult = -1;
+
+      const correctResult = indexOfMethod(array, searchCriteria, indexFrom);
 
       expect(correctResult).toBe(expectedResult);
     });

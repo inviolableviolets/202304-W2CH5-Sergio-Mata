@@ -130,3 +130,13 @@ export const includesMethod = (array, searchCriteria) => {
 
   return false;
 };
+
+export const indexOfMethod = (array, searchCriteria, indexFrom) => {
+  for (let i = indexFrom || 0; i < array.length; i++) {
+    if (array[i] === searchCriteria) {
+      return i;
+    }
+  }
+
+  return -1;
+};
