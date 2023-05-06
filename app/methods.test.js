@@ -6,6 +6,8 @@ import {
   shiftMethod,
   someMethod,
   everyMethod,
+  findMethod,
+  filterMethod,
 } from "./methods";
 
 describe("Given a lengthMethod function", () => {
@@ -190,7 +192,7 @@ describe("Given a someMethod function", () => {
   });
 
   describe("When it receives [1, 2, 3] and (element) => element < 2)", () => {
-    test("Then it should return false", () => {
+    test("Then it should return true", () => {
       const array = [1, 2, 3];
       const callback = (element) => element < 2;
       const expectedResult = true;
@@ -223,6 +225,56 @@ describe("Given an everyMethod function", () => {
       const correctResult = everyMethod(array, callback);
 
       expect(correctResult).toBe(expectedResult);
+    });
+  });
+});
+
+describe("Given a findMethod function", () => {
+  describe("When it receives [1, 2, 3, 4, 5] and (element) => element > 2)", () => {
+    test("Then it should return 3", () => {
+      const array = [1, 2, 3, 4, 5];
+      const callback = (element) => element > 2;
+      const expectedResult = 3;
+
+      const correctResult = findMethod(array, callback);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+  describe("When it receives [1, 2, 3, 4, 5] and (element) => element > 5)", () => {
+    test("Then it should return undefined", () => {
+      const array = [1, 2, 3, 4, 5];
+      const callback = (element) => element > 5;
+      const expectedResult = undefined;
+
+      const correctResult = findMethod(array, callback);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+});
+
+describe("Given a filterMethod function", () => {
+  describe("When it receives [1, 2, 3, 4, 5] and (element) => element > 2)", () => {
+    test("Then it should return true", () => {
+      const array = [1, 2, 3, 4, 5];
+      const callback = (element) => element > 2;
+      const expectedResult = [3, 4, 5];
+
+      const correctResult = filterMethod(array, callback);
+
+      expect(correctResult).toStrictEqual(expectedResult);
+    });
+  });
+  describe("When it receives [1, 2, 3, 4, 5] and (element) => element > 5)", () => {
+    test("Then it should return false", () => {
+      const array = [1, 2, 3, 4, 5];
+      const callback = (element) => element > 5;
+      const expectedResult = [];
+
+      const correctResult = filterMethod(array, callback);
+
+      expect(correctResult).toStrictEqual(expectedResult);
     });
   });
 });
