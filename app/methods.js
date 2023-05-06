@@ -95,3 +95,18 @@ export const filterMethod = (array, callbackFunction) => {
 
   return filteredResult;
 };
+
+export const mapMethod = (array, callbackFunction) => {
+  let mappedResult = [];
+
+  if (!callbackFunction) {
+    mappedResult = [...array];
+    return mappedResult;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    pushMethod(mappedResult, callbackFunction(array[i]));
+  }
+
+  return mappedResult;
+};
