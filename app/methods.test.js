@@ -4,6 +4,8 @@ import {
   popMethod,
   unshiftMethod,
   shiftMethod,
+  someMethod,
+  everyMethod,
 } from "./methods";
 
 describe("Given a lengthMethod function", () => {
@@ -174,27 +176,53 @@ describe("Given a shiftMethod function", () => {
   });
 });
 
-//
-// describe("Given a find function", () => {
-//   describe("When it receives ['Mesa', 'Ordenador', 'Techo', 'Ventana'] and 'Techo'", () => {
-//     test("Then it should return true", () => {
-//       const words = ["Mesa", "Ordenador", "Techo", "Ventana"];
-//       const searchCriteria = "Techo";
+describe("Given a someMethod function", () => {
+  describe("When it receives [1, 2, 3] and (element) => element > 5)", () => {
+    test("Then it should return false", () => {
+      const array = [1, 2, 3];
+      const callback = (element) => element > 5;
+      const expectedResult = false;
 
-//       const correctResult = findMethod(words, searchCriteria);
+      const correctResult = someMethod(array, callback);
 
-//       expect(correctResult).toBe(true);
-//     });
-//   });
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
 
-//   describe("When it receives ['Mesa', 'Ordenador', 'Techo', 'Ventana'] and 'Pocholo'", () => {
-//     test("Then it should return false", () => {
-//       const words = ["Mesa", "Ordenador", "Techo", "Ventana"];
-//       const searchCriteria = "Pocholo";
+  describe("When it receives [1, 2, 3] and (element) => element < 2)", () => {
+    test("Then it should return false", () => {
+      const array = [1, 2, 3];
+      const callback = (element) => element < 2;
+      const expectedResult = true;
 
-//       const correctResult = findMethod(words, searchCriteria);
+      const correctResult = someMethod(array, callback);
 
-//       expect(correctResult).toBe(false);
-//     });
-//   });
-// });
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+});
+
+describe("Given an everyMethod function", () => {
+  describe("When it receives [10, 20, 30] and (element) => element > 20)", () => {
+    test("Then it should return true", () => {
+      const array = [10, 20, 30];
+      const callback = (element) => element > 5;
+      const expectedResult = true;
+
+      const correctResult = everyMethod(array, callback);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+  describe("When it receives [10, 20, 30] and (element) => element > 5)", () => {
+    test("Then it should return false", () => {
+      const array = [10, 20, 30];
+      const callback = (element) => element > 15;
+      const expectedResult = false;
+
+      const correctResult = everyMethod(array, callback);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+});
