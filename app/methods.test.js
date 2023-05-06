@@ -1,4 +1,4 @@
-import functions from "./index";
+import { findMethod, lengthMethod, pushMethod } from "./methods";
 
 describe("Given a length function", () => {
   describe("When it receives [1, 2, 3, 4] ", () => {
@@ -6,7 +6,7 @@ describe("Given a length function", () => {
       const array = [1, 2, 3, 4];
       const expectedResult = 4;
 
-      const correctResult = functions.length(array);
+      const correctResult = lengthMethod(array);
 
       expect(correctResult).toBe(expectedResult);
     });
@@ -17,7 +17,7 @@ describe("Given a length function", () => {
       const array = [];
       const expectedResult = 0;
 
-      const correctResult = functions.length(array);
+      const correctResult = lengthMethod(array);
 
       expect(correctResult).toBe(expectedResult);
     });
@@ -31,7 +31,7 @@ describe("Given a push function", () => {
       const newElement = "Piña";
       const expectedResult = 5;
 
-      const correctResult = functions.push(array, newElement);
+      const correctResult = pushMethod(array, newElement);
 
       expect(correctResult).toBe(expectedResult);
     });
@@ -43,7 +43,24 @@ describe("Given a push function", () => {
       const newElement = 7;
       const expectedResult = 1;
 
-      const correctResult = functions.push(array, newElement);
+      const correctResult = pushMethod(array, newElement);
+
+      expect(correctResult).toBe(expectedResult);
+    });
+  });
+
+  describe("When it receives [1, 2, 3] and 4 and 5", () => {
+    test.only("Then it should return 5", () => {
+      const array = [1, 2, 3];
+      const firstNewElement = 4;
+      const secondNewElement = 5;
+      const expectedResult = 5;
+
+      const correctResult = pushMethod(
+        array,
+        firstNewElement,
+        secondNewElement
+      );
 
       expect(correctResult).toBe(expectedResult);
     });
@@ -56,7 +73,7 @@ describe("Given a find function", () => {
       const words = ["Mesa", "Ordenador", "Techo", "Ventana"];
       const searchCriteria = "Techo";
 
-      const correctResult = functions.find(words, searchCriteria);
+      const correctResult = findMethod(words, searchCriteria);
 
       expect(correctResult).toBe(true);
     });
@@ -67,7 +84,7 @@ describe("Given a find function", () => {
       const words = ["Mesa", "Ordenador", "Techo", "Ventana"];
       const searchCriteria = "Pocholo";
 
-      const correctResult = functions.find(words, searchCriteria);
+      const correctResult = findMethod(words, searchCriteria);
 
       expect(correctResult).toBe(false);
     });

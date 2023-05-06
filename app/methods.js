@@ -1,25 +1,25 @@
-const length = (array) => {
+export const lengthMethod = (array) => {
   let i = 0;
-  // eslint-disable-next-line guard-for-in
   for (i in array) {
-    i++;
+    if (array) {
+      i++;
+    }
   }
 
   return i;
 };
 
-const push = (array, pushedElement) => {
-  const newArray = [];
-  for (let i = 0; i < length(array); i++) {
-    newArray[i] = array[i];
+export const pushMethod = (array, ...elementsToAdd) => {
+  const pushedElements = [...elementsToAdd];
+
+  for (let i = 0; i < pushedElements.length; i++) {
+    array[array.length] = pushedElements[i];
   }
 
-  newArray[length(array)] = pushedElement;
-
-  return length(newArray);
+  return array.length;
 };
 
-const find = (array, searchCriteria) => {
+export const findMethod = (array, searchCriteria) => {
   let searchResult = false;
 
   for (let i = 0; i < length(array); i++) {
@@ -30,19 +30,3 @@ const find = (array, searchCriteria) => {
 
   return searchResult;
 };
-
-const filter = (array, searchCriteria) => {
-  const filteredArray = [];
-  let filteredArrayIndex = 0;
-
-  for (let i = 0; i < length(array); i++) {
-    if (array[i] === searchCriteria) {
-      filteredArray[filteredArrayIndex] = array[i];
-      filteredArrayIndex++;
-    }
-  }
-
-  return filteredArray;
-};
-
-export default { length, push, find, filter };
