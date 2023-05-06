@@ -1,3 +1,4 @@
+import { mapMethod } from "./methods";
 import {
   lengthMethod,
   pushMethod,
@@ -273,6 +274,31 @@ describe("Given a filterMethod function", () => {
       const expectedResult = [];
 
       const correctResult = filterMethod(array, callback);
+
+      expect(correctResult).toStrictEqual(expectedResult);
+    });
+  });
+});
+
+describe("Given a mapMethod function", () => {
+  describe("When it receives [1, 2, 3, 4] and (element) => element * 2", () => {
+    test("It should return [2, 4, 6, 8]", () => {
+      const array = [1, 2, 3, 4];
+      const callback = (element) => element * 2;
+      const expectedResult = [2, 4, 6, 8];
+
+      const correctResult = mapMethod(array, callback);
+
+      expect(correctResult).toStrictEqual(expectedResult);
+    });
+  });
+
+  describe("When it receives [1, 2, 3, 4]", () => {
+    test("It should return [1, 2, 3, 4]", () => {
+      const array = [1, 2, 3, 4];
+      const expectedResult = [1, 2, 3, 4];
+
+      const correctResult = mapMethod(array);
 
       expect(correctResult).toStrictEqual(expectedResult);
     });
