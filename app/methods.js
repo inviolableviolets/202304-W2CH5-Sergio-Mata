@@ -55,8 +55,7 @@ export const shiftMethod = (array) => {
 
 export const someMethod = (array, callbackFunction) => {
   for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    if (callbackFunction(element)) {
+    if (callbackFunction(array[i])) {
       return true;
     }
   }
@@ -68,10 +67,31 @@ export const everyMethod = (array, callbackFunction) => {
   let searchResult = false;
 
   for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    searchResult = callbackFunction(element);
+    searchResult = callbackFunction(array[i]);
     if (!searchResult) return searchResult;
   }
 
   return searchResult;
+};
+
+export const findMethod = (array, callbackFunction) => {
+  for (let i = 0; i < array.length; i++) {
+    if (callbackFunction(array[i])) {
+      return array[i];
+    }
+  }
+
+  return undefined;
+};
+
+export const filterMethod = (array, callbackFunction) => {
+  const filteredResult = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (callbackFunction(array[i])) {
+      pushMethod(filteredResult, array[i]);
+    }
+  }
+
+  return filteredResult;
 };
