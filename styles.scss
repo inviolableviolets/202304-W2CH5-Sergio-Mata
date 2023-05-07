@@ -1,0 +1,102 @@
+@use "reset";
+@use "global";
+@import "responsive";
+
+$primary-color: white;
+$secondary-color: steelblue;
+$primary-font: "Bebas Neue", serif;
+
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  background-image: url("https://i.pinimg.com/originals/3d/08/e0/3d08e03cb40252526fee2036a67f07f1.gif");
+}
+
+main {
+  place-self: center;
+  text-align: center;
+  max-width: 70vw;
+  max-height: 90vh;
+
+  h1 {
+    font-size: 6rem;
+    margin: 1rem;
+    color: $primary-color;
+    text-shadow: 0 0 10px cyan;
+  }
+  .instructions {
+    margin: 2rem;
+    font-size: 1rem;
+    color: $primary-color;
+    text-shadow: 0 0 10px cyan;
+
+    @include desktop {
+      margin: 1rem 1rem;
+      font-size: 2rem;
+    }
+  }
+  input {
+    font-family: $primary-font;
+    background-color: transparent;
+    color: white;
+    text-shadow: 0 0 10px cyan;
+    font-size: 2rem;
+    height: 4rem;
+    width: 10rem;
+    text-align: center;
+    margin: 2rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid cyan;
+  }
+  input::placeholder {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0 0 10px cyan;
+  }
+  select {
+    appearance: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: cyan;
+    text-shadow: 0 0 10px black;
+
+    font-family: $primary-font;
+    text-align: center;
+    margin: 2rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    border: 2px solid $primary-color;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    select::backdrop {
+      background-color: black;
+    }
+
+    @include desktop {
+      font-size: 1.5rem;
+      width: 20rem;
+      height: 3rem;
+    }
+  }
+}
+
+.--hidden {
+  display: none;
+}
+
+.try-again {
+  cursor: pointer;
+  border-radius: 25px;
+  color: white;
+  text-shadow: 0 0 10px cyan;
+  background-color: rgba(0, 0, 0, 0.845);
+  margin-bottom: 2rem;
+}
+
+.try-again:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 0.3s;
+}
