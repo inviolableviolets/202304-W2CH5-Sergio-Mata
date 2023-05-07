@@ -32,7 +32,7 @@ const handleSelectorChange = (event) => {
     result = mappedArray.pop();
   }
 
-  instructionsField.textContent = `Teniendo en cuenta su array [${userArray}], su array pasaría a ser[${mappedArray}] y el resultado ${result}.`;
+  instructionsField.textContent = `Teniendo en cuenta su array [${userArray}], este pasaría a ser [${mappedArray}] y el resultado ${result}.`;
 };
 
 arrayField.addEventListener("submit", handleInputSubmit);
