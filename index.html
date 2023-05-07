@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Array Methods</title>
+</head>
+
+<body>
+  <div class="app-container">
+    <main>
+      <header>
+        <h1>ARRAY METHODS</h1>
+      </header>
+      <section class="instructions">
+        <p>Por favor, introduce los elementos separados por comas que te gustaría que compusiesen tu array.</p>
+      </section>
+      <section class="input">
+        <form class="array-input" action="">
+          <input class="user-answer" autofocus type="text" placeholder="&#128430;" maxlength="40" size="15">
+        </form>
+      </section>
+      <section class="methods --hidden">
+        <select class="method-selector" name="methods" id="methods">
+          <option selected disabled>ELIGE UN MÉTODO</option>
+          <option value="length">.length</option>
+          <option value="pop">.pop</option>
+        </select>
+      </section>
+      <section class="result --hidden">
+        <input class="try-again" type="button" value="TRY AGAIN">
+      </section>
+    </main>
+  </div>
+
+  <script src="app/index.js"></script>
+</body>
+
+</html>
